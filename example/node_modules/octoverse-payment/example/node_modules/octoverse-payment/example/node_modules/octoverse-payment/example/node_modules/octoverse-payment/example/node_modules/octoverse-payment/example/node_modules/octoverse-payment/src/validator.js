@@ -22,9 +22,7 @@ function requestPaymentToken(body){
     {
       amount: Joi.string().max(255).required(),
       currencyCode: Joi.string().max(255).required(),
-      secretKey: Joi.string().max(255).required(),
       merchantID: Joi.string().max(255).required(),
-      testMode: Joi.boolean().allow(null, ''),
       invoiceNo: Joi.string().max(255).required(),
       backendUrl: Joi.string().max(255).allow(null, ''),
     });  
@@ -35,13 +33,9 @@ function checkPaymentStatus(body){
 
     return validator(body, 
       {
-        amount: Joi.string().max(255).required(),
-        currencyCode: Joi.string().max(255).required(),
-        secretKey: Joi.string().max(255).required(),
+       
         merchantID: Joi.string().max(255).required(),
-        testMode: Joi.boolean().allow(null, ''),
         invoiceNo: Joi.string().max(255).required(),
-        backendUrl: Joi.string().max(255).allow(null, ''),
       });  
   
   }

@@ -5,12 +5,10 @@ import validator from "./src/validator.js";
 
 const baseUrl = 'https://octoverse.com.mm/api/payment';
 const testBaseUrl = 'https://test.octoverse.com.mm/api/payment';
-global.testMode = false;
-global.secretKey = '';
 
 const init = (settings)=>{
-     testMode = settings.testMode;
-     secretKey = settings.secretKey;
+     global.testMode = settings.testMode;
+     global.secretKey = settings.secretKey;
      if(testMode){
         console.log('Installed Octoverse payment')
      } 

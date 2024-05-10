@@ -1,0 +1,18 @@
+{
+  "name": "dev_dghub_example",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Octoverse payment",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "DGHub",
+  "license": "ISC",
+  "dependencies": {
+    "octoverse-payment": "github:octoverse-mpss-dghub-onextech/octoverse-payment-npm"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
