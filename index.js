@@ -6,6 +6,12 @@ import validator from "../../admin_panel/library/dghub_payment/src/validator.js"
 const baseUrl = 'https://octoverse.com.mm/api/payment';
 const testBaseUrl = 'https://test.octoverse.com.mm/api/payment';
 global.testMode = false;
+global.secretKey = '';
+
+const init = (settings)=>{
+     global.testMode = settings.testMode;
+     global.secretKey = settings.secretKey;
+}
 
 const requestPaymentToken = async (settings)=>{
     return await new Promise(async (resolve, reject) => {
@@ -26,7 +32,7 @@ const requestPaymentToken = async (settings)=>{
                 currencyCode: settings.currencyCode.toUpperCase(),
                 backendUrl: settings.backendUrl
                 },
-                settings.secretKey,
+                global.secretKey,
                 {
                     algorithm: 'HS512', 
                     noTimestamp: true
@@ -139,7 +145,7 @@ const checkPaymentStatus = async (token,settings)=>{
                 merchantID: settings.merchantID,
                 invoiceNo: settings.invoiceNo,
                 },
-                settings.secretKey,
+                global.secretKey,
                 {
                     algorithm: 'HS512', 
                     noTimestamp: true
@@ -172,4 +178,4 @@ const checkPaymentStatus = async (token,settings)=>{
       });
 }
 
-export default { requestPaymentToken,getAvailablePaymentsList,directDoPay,checkPaymentStatus }
+export default { init, requestPaymentToken,getAvailablePaymentsList,directDoPay,checkPaymentStatus }

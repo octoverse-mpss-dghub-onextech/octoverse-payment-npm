@@ -52,15 +52,21 @@ Or
 const OctoversePayment = require("octoverse-payment");
 ```
 
+## Init
+
+```javascript
+OctoversePayment.init({
+    testMode: true,
+    secretKey: '123456',
+    });
+```
 ## Example request payment token
 
 ```javascript
 var { error, data } = await OctoversePayment.requestPaymentToken({
       amount: '500',
       currencyCode: 'MMK',
-      secretKey: '123456',
       merchantID: 'TEST0000XX',
-      testMode: true,
       invoiceNo: 'INV0000XX',
       backendUrl: 'https://yourbackendurl.com',
 });
