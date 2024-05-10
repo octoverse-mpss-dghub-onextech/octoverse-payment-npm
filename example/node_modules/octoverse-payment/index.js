@@ -22,7 +22,6 @@ const requestPaymentToken = async (settings)=>{
             var vali = validator.requestPaymentToken(settings);
 
             if (vali != true) {
-              console.log(vali);
               return {error: true, data: vali };
             }
            
@@ -64,7 +63,6 @@ const requestPaymentToken = async (settings)=>{
             data: decoded,
           });
         } catch (error) {
-          console.log(error);
           return resolve({ error: true, data: error.message });
         }
       });
@@ -95,7 +93,6 @@ const getAvailablePaymentsList = async (token)=>{
             data: response.data,
           });
         } catch (error) {
-          console.log(error);
           return resolve({ error: true, data: error.message });
         }
       });
@@ -127,7 +124,6 @@ const directDoPay = async (token,settings)=>{
             data: response.data,
           });
         } catch (error) {
-          console.log(error);
           return resolve({ error: true, data: error.message });
         }
       });
@@ -140,7 +136,6 @@ const checkPaymentStatus = async (token,settings)=>{
             var vali = validator.checkPaymentStatus(settings);
 
             if (vali != true) {
-              console.log(vali);
               return {error: true, data: vali };
             }
 
@@ -176,7 +171,6 @@ const checkPaymentStatus = async (token,settings)=>{
             data: response.data,
           });
         } catch (error) {
-          console.log(error);
           return resolve({ error: true, data: error.message });
         }
       });
