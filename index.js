@@ -11,6 +11,9 @@ global.secretKey = '';
 const init = (settings)=>{
      global.testMode = settings.testMode;
      global.secretKey = settings.secretKey;
+     if(global.testMode){
+        console.log('Installed Octoverse payment')
+     } 
 }
 
 const requestPaymentToken = async (settings)=>{
