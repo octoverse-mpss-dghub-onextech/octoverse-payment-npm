@@ -2,6 +2,8 @@
   "name": "octoverse-payment",
   "version": "1.0.0",
   "description": "Accept Payments Anytime, Anywhere!",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
   },
   "nyc": {
