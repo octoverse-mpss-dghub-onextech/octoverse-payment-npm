@@ -56,7 +56,7 @@ const requestPaymentToken = async (settings)=>{
             },
           });
     
-          const decoded = jwt.verify(response.data, settings.secretKey);
+          const decoded = jwt.verify(response.data, global.secretKey);
 
           return resolve({
             error: false,
