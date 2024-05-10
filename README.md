@@ -55,7 +55,7 @@ const OctoversePayment = require("octoverse-payment");
 ## Example request payment token
 
 ```javascript
-var { error, data } = OctoversePayment.requestPaymentToken({
+var { error, data } = await OctoversePayment.requestPaymentToken({
       amount: '500',
       currencyCode: 'MMK',
       secretKey: '123456',
@@ -76,7 +76,7 @@ console.log(tokens.paymentToken); // Body POST Method - paymentToken
 ## Example get available payments list
 
 ```javascript
-var { error, data } = OctoversePayment.getAvailablePaymentsList(tokens);
+var { error, data } = await OctoversePayment.getAvailablePaymentsList(tokens);
 
 if(error){
  console.log(data); // Error message
@@ -89,7 +89,7 @@ console.log(availablePayments); // available payments list data
 ## Example direct do pay
 
 ```javascript
-var { error, data } = OctoversePayment.directDoPay(tokens,{
+var { error, data } = await OctoversePayment.directDoPay(tokens,{
    paymentCode: "AYAPAY_PIN",
    payData: "IUYnLxp8SHv0Ayy3jDDF0E+GuianSYgDi3xvYeIxC8eFlOr1ME9HdOMhQ0yzRnxX"
 });
@@ -104,7 +104,7 @@ console.log(response); // response status
 ## Example check payment status
 
 ```javascript
-var { error, data } = OctoversePayment.checkPaymentStatus(tokens,{
+var { error, data } = await OctoversePayment.checkPaymentStatus(tokens,{
       secretKey: '123456',
       merchantID: 'TEST0000XX',
       invoiceNo: 'INV0000XX',
