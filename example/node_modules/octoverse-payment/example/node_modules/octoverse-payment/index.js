@@ -9,9 +9,9 @@ global.testMode = false;
 global.secretKey = '';
 
 const init = (settings)=>{
-     global.testMode = settings.testMode;
-     global.secretKey = settings.secretKey;
-     if(global.testMode){
+     testMode = settings.testMode;
+     secretKey = settings.secretKey;
+     if(testMode){
         console.log('Installed Octoverse payment')
      } 
 }
@@ -19,7 +19,7 @@ const init = (settings)=>{
 const requestPaymentToken = async (settings)=>{
     return await new Promise(async (resolve, reject) => {
         try {
-            global.testMode = settings.testMode;
+            testMode = settings.testMode;
             var vali = validator.requestPaymentToken(settings);
 
             if (vali != true) {
@@ -35,7 +35,7 @@ const requestPaymentToken = async (settings)=>{
                 currencyCode: settings.currencyCode.toUpperCase(),
                 backendUrl: settings.backendUrl
                 },
-                global.secretKey,
+                secretKey,
                 {
                     algorithm: 'HS512', 
                     noTimestamp: true
@@ -47,7 +47,7 @@ const requestPaymentToken = async (settings)=>{
           var response = await axios.request({
             url: "/auth/token",
             method: "post",
-            baseURL: global.testMode? testBaseUrl: baseUrl,
+            baseURL: testMode? testBaseUrl: baseUrl,
             data: JSON.stringify({
                 payData: body
             }),
@@ -55,10 +55,10 @@ const requestPaymentToken = async (settings)=>{
               "Content-Type": "application/json",
             },
           });
-          if(global.testMode){
-            console.log(global.secretKey);
+          if(testMode){
+            console.log(secretKey);
          } 
-          const decoded = jwt.verify(response.data, global.secretKey);
+          const decoded = jwt.verify(response.data, secretKey);
           
           return resolve({
             error: false,
@@ -79,7 +79,7 @@ const getAvailablePaymentsList = async (token)=>{
           var response = await axios.request({
             url: "/getAvailablePaymentsList",
             method: "post",
-            baseURL: global.testMode? testBaseUrl: baseUrl,
+            baseURL: testMode? testBaseUrl: baseUrl,
             data: JSON.stringify({
                 paymentToken: token.paymentToken
             }),
@@ -109,7 +109,7 @@ const directDoPay = async (token,settings)=>{
           var response = await axios.request({
             url: "/dopay",
             method: "post",
-            baseURL: global.testMode? testBaseUrl: baseUrl,
+            baseURL: testMode? testBaseUrl: baseUrl,
             data: JSON.stringify({
                 paymentCode: settings.paymentCode,
                 paymentToken: token.paymentToken,
@@ -150,7 +150,7 @@ const checkPaymentStatus = async (token,settings)=>{
                 merchantID: settings.merchantID,
                 invoiceNo: settings.invoiceNo,
                 },
-                global.secretKey,
+                secretKey,
                 {
                     algorithm: 'HS512', 
                     noTimestamp: true
@@ -162,7 +162,7 @@ const checkPaymentStatus = async (token,settings)=>{
           var response = await axios.request({
             url: "/auth/paymentInQuery",
             method: "post",
-            baseURL: global.testMode? testBaseUrl: baseUrl,
+            baseURL: testMode? testBaseUrl: baseUrl,
             data: JSON.stringify({
                 payData: body
             }),

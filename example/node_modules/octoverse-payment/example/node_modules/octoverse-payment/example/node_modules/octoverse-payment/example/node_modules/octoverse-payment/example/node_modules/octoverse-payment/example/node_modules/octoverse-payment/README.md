@@ -25,6 +25,8 @@ Thank you.
 
 ## Documentation
 
+Check example folder
+
 ## Install
 
 ```
