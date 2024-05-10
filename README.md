@@ -111,7 +111,6 @@ console.log(response); // response status
 
 ```javascript
 var { error, data } = await OctoversePayment.checkPaymentStatus(tokens,{
-      secretKey: '123456',
       merchantID: 'TEST0000XX',
       invoiceNo: 'INV0000XX',
 });
