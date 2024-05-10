@@ -1,0 +1,36 @@
+{
+  "name": "octoverse-payment",
+  "version": "1.0.0",
+  "description": "Accept Payments Anytime, Anywhere!",
+  "scripts": {
+  },
+  "nyc": {
+    "exclude": [
+      "**/spec/**",
+      "node_modules"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "repository": "octoverse/octoverse-payment",
+  "keywords": [
+    "Payment"
+  ],
+  "author": "Dimi Gol",
+  "license": "MIT",
+  "bugs": "https://github.com/octoverse-mpss-dghub-onextech/octoverse-payment-npm/issues",
+  "homepage": "https://www.octoverse.com.mm",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/octoverse-mpss-dghub-onextech/octoverse-payment-npm"
+  }
+}
