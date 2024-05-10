@@ -55,9 +55,11 @@ const requestPaymentToken = async (settings)=>{
               "Content-Type": "application/json",
             },
           });
-    
+          if(global.testMode){
+            console.log(global.secretKey);
+         } 
           const decoded = jwt.verify(response.data, global.secretKey);
-
+          
           return resolve({
             error: false,
             data: decoded,
