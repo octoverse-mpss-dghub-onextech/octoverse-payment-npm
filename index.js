@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "querystring";
 import jwt from "jsonwebtoken";
-import validator from "../../admin_panel/library/dghub_payment/src/validator.js";
+import validator from "./src/validator.js";
 
 const baseUrl = 'https://octoverse.com.mm/api/payment';
 const testBaseUrl = 'https://test.octoverse.com.mm/api/payment';
